@@ -73,14 +73,14 @@ int main() {
     //printf("Initialized register access.\n");
 
     t_start = get_timestamp();
-    printf("Doing a printf to use up some time between timestamps!\n");
+    //printf("Doing a printf to use up some time between timestamps!\n");
     //usleep(0);    // minimal delay
-    //usleep(10e6);   // 10 seconds
+    usleep(10e6);   // 10 seconds
     t_end = get_timestamp();
 
     printf("t_start = 0x%016llx, t_end = 0x%016llx\n", t_start, t_end);
     //printf("%llu clock cycles.\n", 2*(t_end - t_start));
-    printf("%.2f us.\n", 1.0 * (t_end - t_start) / (COUNTS_PER_SECOND/1000000));
+    printf("%.2f us.\n", 2.0 * (t_end - t_start) / (COUNTS_PER_SECOND/1000000));
 
     return 0;
 }

@@ -4,10 +4,11 @@ Implements a simple precise timestamping facility for ADALM Pluto
 SDR platform, using a timer register built into the ARM Cortex-A9
 processor core.
 
-The timer register runs on the CPU clock, at 666,666,687 Hz, and
-constantly counts up from zero unless reset by a write the timer
-register. This program never writes to the timer register. The
-register is 64 bits wide, so it will roll over after about 877 years.
+The timer register runs on the CPU clock, at 666,666,687 Hz
+divided by 2, and constantly counts up from zero unless reset
+by a write the timer register. This program never writes to the
+timer register. The register is 64 bits wide, so it will roll
+over after about 877 years.
 
 ## API Calls
 If you include this in a larger program there are just two APIs
@@ -58,7 +59,7 @@ The timestamps could also be used for logging purposes, and for
 any other purpose you like.
 
 ## About Timestamping Precision
-The hardware counter updates every 1.5ns, but that doesn't mean
+The hardware counter updates every 3ns, but that doesn't mean
 your timestamps are that accurate or that precise.
 
 As a point of reference, two consecutive calls to

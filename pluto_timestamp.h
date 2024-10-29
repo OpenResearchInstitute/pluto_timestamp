@@ -7,8 +7,8 @@
 
 #include <stdint.h>
 
-/* Global Timer runs on the CPU clock */
-#define COUNTS_PER_SECOND 666666687
+/* Global Timer runs on the CPU clock, divided by 2 */
+#define COUNTS_PER_SECOND (666666687 / 2)
 
 void initialize_timer_register_access_block();
 
