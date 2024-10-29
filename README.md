@@ -56,3 +56,21 @@ the sum, it's time to end the loop.
 
 The timestamps could also be used for logging purposes, and for
 any other purpose you like.
+
+## About Timestamping Precision
+The hardware counter updates every 1.5ns, but that doesn't mean
+your timestamps are that accurate or that precise.
+
+As a point of reference, two consecutive calls to
+`get_timestamp()` with nothing in between takes 0.29 microseconds
+on my Pluto. Any function calls you make between timestamps
+will add additional overhead, of course.
+
+Another issue is that the CPU clock is probably not locked to
+whatever you're doing in hardware, such as a DSP sample clock.
+The oscillators on a stock Pluto are not very accurate in
+frequency. They are reasonably stable at room temperature,
+but you can expect them to drift with ambient temperature.
+As a result, you can't expect these timestamps to work for
+synchronous signal processing on the Pluto. But they should
+be pretty good for general timing and debugging purposes.
